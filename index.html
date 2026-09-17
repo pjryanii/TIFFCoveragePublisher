@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width,initial-scale=1">
+
+  <title>Two Hops Coverage Publisher</title>
+
+  https://js.arcgis.com/4.33/esri/themes/light/main.css
+
+  styles.css
+
+  https://js.arcgis.com/4.33/script>
+</head>
+
+<body>
+
+<main class="app-shell">
+
+<header class="hero">
+
+  logo-med.png
+
+  <div class="eyebrow">
+    PROPAGATION COVERAGE PUBLISHER
+  </div>
+
+  <h1>
+    Two Hops Coverage Publisher
+  </h1>
+
+  <p>
+    Upload propagation TIFF imagery and create
+    persistent coverage records for FCC PEA analysis.
+  </p>
+
+</header>
+
+<section class="card auth-row">
+
+  <div>
+    <span class="label-small">
+      ArcGIS Online
+    </span>
+
+    <div id="userLabel">
+      Not signed in
+    </div>
+  </div>
+
+  <div>
+    <button id="signInButton"
+            class="button secondary">
+      Sign In
+    </button>
+
+    <button id="signOutButton"
+            class="button link"
+            hidden>
+      Sign Out
+    </button>
+  </div>
+
+</section>
+
+<section class="card">
+
+  <h2>
+    Upload Propagation TIFF
+  </h2>
+
+  <input id="fileInput"
+         type="file"
+         accept=".tif,.tiff">
+
+  <button id="uploadButton"
+          class="button primary full"
+          disabled>
+      Publish Coverage
+  </button>
+
+</section>
+
+<section class="card">
+
+  <div id="status"
+       class="status">
+       Sign in to begin.
+  </div>
+
+  <div id="progress"
+       class="progress"
+       hidden>
+       <div></div>
+  </div>
+
+</section>
+
+<section id="resultsCard"
+         class="card"
+         hidden>
+
+  <h2>
+    Coverage Published
+  </h2>
+
+  <div id="analysisId"></div>
+
+  <div id="resultSummary"></div>
+
+</section>
+
+</main>
+
+config.jsscript>
+<script src="app.js"></script>
+
