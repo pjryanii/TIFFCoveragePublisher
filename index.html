@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport"
-        content="width=device-width,initial-scale=1">
 
-  <title>Two Hops Coverage Publisher</title>
+<meta charset="utf-8">
 
-  https://js.arcgis.com/4.33/esri/themes/light/main.css
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1">
 
-  styles.css
+<title>
+TIFF Coverage Publisher
+</title>
 
-  https://js.arcgis.com/4.33/script>
+https://js.arcgis.com/4.33/esri/themes/light/main.css
+
+styles.css
+
+https://js.arcgis.com/4.33/script>
+
 </head>
 
 <body>
@@ -20,94 +27,121 @@
 
 <header class="hero">
 
-  logo-med.png
+<div class="eyebrow">
+TELECOM COVERAGE ANALYSIS
+</div>
 
-  <div class="eyebrow">
-    PROPAGATION COVERAGE PUBLISHER
-  </div>
+<h1>
+TIFF Coverage Publisher
+</h1>
 
-  <h1>
-    Two Hops Coverage Publisher
-  </h1>
-
-  <p>
-    Upload propagation TIFF imagery and create
-    persistent coverage records for FCC PEA analysis.
-  </p>
+<p>
+Upload a propagation TIFF and create a
+persistent coverage record for downstream
+FCC PEA analysis.
+</p>
 
 </header>
 
-<section class="card auth-row">
+<section class="card">
 
-  <div>
-    <span class="label-small">
-      ArcGIS Online
-    </span>
+<div id="userLabel">
+Not signed in
+</div>
 
-    <div id="userLabel">
-      Not signed in
-    </div>
-  </div>
+<br>
 
-  <div>
-    <button id="signInButton"
-            class="button secondary">
-      Sign In
-    </button>
+<button
+  id="signInButton"
+  class="button secondary">
 
-    <button id="signOutButton"
-            class="button link"
-            hidden>
-      Sign Out
-    </button>
-  </div>
+Sign In
+
+</button>
+
+<button
+  id="signOutButton"
+  class="button secondary"
+  hidden>
+
+Sign Out
+
+</button>
 
 </section>
 
 <section class="card">
 
-  <h2>
-    Upload Propagation TIFF
-  </h2>
+<h2>
+Propagation TIFF
+</h2>
 
-  <input id="fileInput"
-         type="file"
-         accept=".tif,.tiff">
+<p>
+Select a TIFF generated from propagation
+analysis. The uploaded TIFF will be processed
+and converted into a new persistent coverage
+record.
+</p>
 
-  <button id="uploadButton"
-          class="button primary full"
-          disabled>
-      Publish Coverage
-  </button>
+<input
+  id="fileInput"
+  type="file"
+  accept=".tif,.tiff">
+
+<button
+  id="runButton"
+  class="button primary full"
+  disabled>
+
+Create Coverage Record
+
+</button>
 
 </section>
 
 <section class="card">
 
-  <div id="status"
-       class="status">
-       Sign in to begin.
-  </div>
+<div
+  id="progress"
+  class="progress"
+  hidden>
 
-  <div id="progress"
-       class="progress"
-       hidden>
-       <div></div>
-  </div>
+<div></div>
+
+</div>
+
+<div
+  id="status"
+  class="status">
+
+Sign in to begin.
+
+</div>
 
 </section>
 
-<section id="resultsCard"
-         class="card"
-         hidden>
+<section
+  id="results"
+  class="card"
+  hidden>
 
-  <h2>
-    Coverage Published
-  </h2>
+<h2>
+Coverage Record Created
+</h2>
 
-  <div id="analysisId"></div>
+<p>
 
-  <div id="resultSummary"></div>
+<strong>
+Analysis ID
+</strong>
+
+<br>
+
+<span id="analysisId"></span>
+
+</p>
+
+<div id="summary"></div>
 
 </section>
 
@@ -116,3 +150,5 @@
 config.jsscript>
 <script src="app.js"></script>
 
+</body>
+</html>
