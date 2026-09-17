@@ -2,157 +2,165 @@
 <html lang="en">
 
 <head>
+  <meta charset="utf-8">
 
-<meta charset="utf-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1">
 
-<meta
-  name="viewport"
-  content="width=device-width,initial-scale=1">
+  <title>TIFF Coverage Publisher</title>
 
-<title>
-TIFF Coverage Publisher
-</title>
+  <link
+    rel="stylesheet"
+    href="https://js.arcgis.com/4.33/esri/themes/light/main.css">
 
-<link
-  rel="stylesheet"
-  href="https://js.arcgis.com/4.33/esri/themes/light/main.css">
+  ./styles.css
 
-<link
-  rel="stylesheet"
-  href="styles.css">
-
-https://js.arcgis.com/
-  
+  https://js.arcgis.com/4.33/script>
 </head>
 
 <body>
 
-<main class="app-shell">
+  <main class="app-shell">
 
-<header class="hero">
+    <header class="app-header">
 
-<div class="eyebrow">
-TELECOM COVERAGE ANALYSIS
-</div>
+      <div class="header-copy">
+        <h1>TIFF Coverage Publisher</h1>
 
-<h1>
-TIFF Coverage Publisher
-</h1>
+        <p>
+          Upload a propagation TIFF and create a persistent
+          coverage record.
+        </p>
+      </div>
 
-<p>
-Upload a propagation TIFF and create a
-persistent coverage record for downstream
-FCC PEA analysis.
-</p>
+      <div class="header-session">
 
-</header>
+        <span id="userLabel">
+          Not signed in
+        </span>
 
-<section class="card">
+        <button
+          id="signInButton"
+          class="button header-button"
+          type="button">
 
-<div id="userLabel">
-Not signed in
-</div>
+          <span
+            class="sign-in-icon"
+            aria-hidden="true">
+            ↪
+          </span>
 
-<br>
+          <span>Sign in</span>
+        </button>
 
-<button
-  id="signInButton"
-  class="button secondary">
+        <button
+          id="signOutButton"
+          class="button header-button"
+          type="button"
+          hidden>
 
-Sign In
+          <span>Sign out</span>
+        </button>
 
-</button>
+      </div>
 
-<button
-  id="signOutButton"
-  class="button secondary"
-  hidden>
+    </header>
 
-Sign Out
+    <section class="content-area">
 
-</button>
+      <section class="upload-card">
 
-</section>
+        <div class="section-heading">
+          TIFF upload
+        </div>
 
-<section class="card">
+        <p class="section-description">
+          Choose one .tif or .tiff file from your computer.
+        </p>
 
-<h2>
-Propagation TIFF
-</h2>
+        <label for="fileInput">
+          Local TIFF file
+        </label>
 
-<p>
-Select a TIFF generated from propagation
-analysis. The uploaded TIFF will be processed
-and converted into a new persistent coverage
-record.
-</p>
+        <input
+          id="fileInput"
+          class="file-input"
+          type="file"
+          accept=".tif,.tiff"
+          disabled>
 
-<input
-  id="fileInput"
-  type="file"
-  accept=".tif,.tiff">
+        <button
+          id="runButton"
+          class="button primary full"
+          type="button"
+          disabled>
 
-<button
-  id="runButton"
-  class="button primary full"
-  disabled>
+          <span
+            class="upload-icon"
+            aria-hidden="true">
+            ⇧
+          </span>
 
-Create Coverage Record
+          <span>
+            Upload and create coverage
+          </span>
 
-</button>
+        </button>
 
-</section>
+      </section>
 
-<section class="card">
+      <section
+        class="status-card"
+        aria-live="polite">
 
-<div
-  id="progress"
-  class="progress"
-  hidden>
+        <div
+          id="progress"
+          class="progress"
+          hidden>
+          <div></div>
+        </div>
 
-<div></div>
+        <div
+          id="status"
+          class="status info">
+          Sign in to begin.
+        </div>
 
-</div>
+      </section>
 
-<div
-  id="status"
-  class="status">
+      <section
+        id="results"
+        class="results-card"
+        hidden>
 
-Sign in to begin.
+        <h2>
+          Coverage Record Created
+        </h2>
 
-</div>
+        <div class="result-field">
 
-</section>
+          <span class="result-label">
+            Analysis ID
+          </span>
 
-<section
-  id="results"
-  class="card"
-  hidden>
+          <span id="analysisId"></span>
 
-<h2>
-Coverage Record Created
-</h2>
+        </div>
 
-<p>
+        <div
+          id="summary"
+          class="result-summary">
+        </div>
 
-<strong>
-Analysis ID
-</strong>
+      </section>
 
-<br>
+    </section>
 
-<span id="analysisId"></span>
+  </main>
 
-</p>
-
-<div id="summary"></div>
-
-</section>
-
-</main>
-
-<script src="config.js"></script>
-<script src="app.js"></script>
+  ./config.jsscript>
+  ./app.jsscript>
 
 </body>
 
