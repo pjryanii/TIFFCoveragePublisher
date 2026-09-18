@@ -459,36 +459,16 @@ require([
         );
       }
 
+      const completedJob =
       await monitorNotebookJob(
         submission.jobId
       );
 
-      const outputSummary = await getJobResultValue(
-        submission.jobId,
-        config.outputSummary
-      );
+const outputSummary =
+  "Coverage created successfully.";
+      const outputAnalysisId =
+  submission.jobId;
 
-      let outputAnalysisId = "";
-
-      if (
-        config.outputAnalysisId
-        && String(
-          config.outputAnalysisId
-        ).trim()
-      ) {
-        try {
-          outputAnalysisId = await getJobResultValue(
-            submission.jobId,
-            config.outputAnalysisId
-          );
-
-        } catch (analysisIdError) {
-          console.warn(
-            "Analysis ID output was not available:",
-            analysisIdError
-          );
-        }
-      }
 
       ui.analysisId.textContent = (
         normalizeResultValue(
