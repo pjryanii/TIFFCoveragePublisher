@@ -858,9 +858,42 @@ require([
   // ============================================================
 
   async function getJobResultValue(
-    jobId,
-    outputParameterName
-  ) {
+  jobId,
+  outputParameterName
+) {
+
+  console.log("JOB ID:", jobId);
+  console.log("OUTPUT:", outputParameterName);
+
+  const notebookUrl = stripTrailingSlash(
+    config.notebookUrl
+  );
+
+  const resultUrl =
+    `${notebookUrl}/jobs/` +
+    `${encodeURIComponent(jobId)}/results/` +
+    encodeURIComponent(outputParameterName);
+
+  console.log("RESULT URL:", resultUrl);
+
+  const response = await getJson(
+    resultUrl,
+    {
+      f: "json",
+      token: credential.token
+    }
+  );
+
+  console.log("RESULT RESPONSE:", response);
+
+  if (response.error) {
+    throw createArcGisError(
+      response.error
+    );
+  }
+
+  return response.value;
+} {
     if (
       !outputParameterName
       || !String(
@@ -882,6 +915,8 @@ require([
         )
     );
 
+    console.log("RESULT URL:", resultUrl);
+    
     const response = await getJson(
       resultUrl,
       {
@@ -896,6 +931,8 @@ require([
       );
     }
 
+    console.log("GET URL:", requestUrl);
+    
     return response.value;
   }
 
