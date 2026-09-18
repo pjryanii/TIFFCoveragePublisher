@@ -862,8 +862,15 @@ require([
   outputParameterName
 ) {
 
+  if (
+    !outputParameterName
+    || !String(outputParameterName).trim()
+  ) {
+    return "";
+  }
+
   console.log("JOB ID:", jobId);
-  console.log("OUTPUT:", outputParameterName);
+  console.log("OUTPUT PARAMETER:", outputParameterName);
 
   const notebookUrl = stripTrailingSlash(
     config.notebookUrl
@@ -884,7 +891,10 @@ require([
     }
   );
 
-  console.log("RESULT RESPONSE:", response);
+  console.log(
+    "RESULT RESPONSE:",
+    response
+  );
 
   if (response.error) {
     throw createArcGisError(
@@ -893,48 +903,7 @@ require([
   }
 
   return response.value;
-} {
-    if (
-      !outputParameterName
-      || !String(
-        outputParameterName
-      ).trim()
-    ) {
-      return "";
-    }
-
-    const notebookUrl = stripTrailingSlash(
-      config.notebookUrl
-    );
-
-    const resultUrl = (
-      `${notebookUrl}/jobs/`
-      + `${encodeURIComponent(jobId)}/results/`
-      + encodeURIComponent(
-          outputParameterName
-        )
-    );
-
-    console.log("RESULT URL:", resultUrl);
-    
-    const response = await getJson(
-      resultUrl,
-      {
-        f: "json",
-        token: credential.token
-      }
-    );
-
-    if (response.error) {
-      throw createArcGisError(
-        response.error
-      );
-    }
-
-    console.log("GET URL:", requestUrl);
-    
-    return response.value;
-  }
+}
 
   // ============================================================
   // Fallback Uploaded TIFF Cleanup
@@ -1085,6 +1054,11 @@ require([
 
     const requestUrl = (
       `${url}?${query.toString()}`
+    );
+
+    console.log(
+      "GET URL:",
+      requestUrl
     );
 
     const response = await fetch(
