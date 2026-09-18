@@ -863,8 +863,8 @@ require([
 ) {
 
   if (
-    !outputParameterName
-    || !String(outputParameterName).trim()
+    !outputParameterName ||
+    !String(outputParameterName).trim()
   ) {
     return "";
   }
@@ -881,7 +881,10 @@ require([
     `${encodeURIComponent(jobId)}/results/` +
     encodeURIComponent(outputParameterName);
 
-  console.log("RESULT URL:", resultUrl);
+  console.log(
+    "RESULT URL:",
+    resultUrl
+  );
 
   const response = await getJson(
     resultUrl,
